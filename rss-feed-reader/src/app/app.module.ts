@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GormtestComponent } from './gormtest/gormtest.component';
-import { HttpClientModule } from '@angular/common/http';
+import { ReaderTestComponent } from './reader-test/reader-test.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    GormtestComponent
+    ReaderTestComponent,
+    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
