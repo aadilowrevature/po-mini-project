@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { OptionsComponent } from './options/options.component';
 import { SavedComponent } from './saved/saved.component';
 import { ResultsComponent } from './results/results.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ResultsComponent } from './results/results.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
     
   ],
   providers: [],

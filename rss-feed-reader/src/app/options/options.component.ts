@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RssService } from '../rss.service';
 
 @Component({
   selector: 'app-options',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rssService: RssService) { }
 
   ngOnInit(): void {
   }
 
-  submit(){
+  submit(){ //add string parameter
+    // event?.preventDefault();
+    console.log("submit");
     //this should call the rss service... and cause displaying of results
-
+    this.rssService.setData('https://www.usda.gov/rss/home.xml');
+    //should this call next() in the subject?
+    
   }
 }
