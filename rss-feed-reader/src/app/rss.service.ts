@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Subscription, BehaviorSubject, Subject } from 'rxjs';
+import * as striptags from 'striptags';
 import { Article } from './Article';
 
 @Injectable({
@@ -33,11 +34,12 @@ export class RssService {
         for (let i = 0; i < data.documentElement.getElementsByTagName("title").length; i++) {
           // if (data.documentElement.getElementsByTagName("title")[i]) { //if title exists, we will create variables
             let title = data.documentElement.getElementsByTagName("title")[i].innerHTML;
-            let description = '';
+            let description:string|null = '';
             let url = '';
             // console.log(data.documentElement.getElementsByTagName("title"));
             if (data.documentElement.getElementsByTagName("description")[i]) { //if description add description to variable
-              description = data.documentElement.getElementsByTagName("description")[i].innerHTML;
+              description = data.documentElement.getElementsByTagName("description")[i].textContent;
+              description=striptags(description!.toString());
             }
             if (data.documentElement.getElementsByTagName("link")) {// if url add url
               url = data.documentElement.getElementsByTagName("link")[i].innerHTML;

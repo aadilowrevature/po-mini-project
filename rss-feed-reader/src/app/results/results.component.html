@@ -6,14 +6,16 @@
             <li>{{article.title}}
 
             </li>
-            <ol>
+            <ul>
                 <li>
                     {{article.description}}
                 </li>
                 <li>
-                    {{article.link}}
+                    <a [href]="article.link">{{article.link}}</a>
                 </li>
-            </ol>
+            </ul>
+
+            
 
 
         </div>
