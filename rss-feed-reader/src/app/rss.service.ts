@@ -26,21 +26,22 @@ export class RssService {
     ).then(res => res.text())
       .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
       .then(data => {
-        console.log(data)
-        console.log(data.documentElement.getElementsByTagName("title").length)
-        //empty data so we dont just add to it...
+        // console.log(data)
+        // console.log(data.documentElement.getElementsByTagName("title").length)
         this.articles = []; // deletes old list
         for (let i = 0; i < data.documentElement.getElementsByTagName("title").length; i++) {
           // if (data.documentElement.getElementsByTagName("title")[i]) { //if title exists, we will create variables
             let title = data.documentElement.getElementsByTagName("title")[i].innerHTML;
             let description = '';
             let url = '';
+            // console.log(data.documentElement.getElementsByTagName("title"));
             if (data.documentElement.getElementsByTagName("description")[i]) { //if description add description to variable
               description = data.documentElement.getElementsByTagName("description")[i].innerHTML;
             }
             if (data.documentElement.getElementsByTagName("link")) {// if url add url
               url = data.documentElement.getElementsByTagName("link")[i].innerHTML;
             }
+            //if link or description doesnt come through, the index could be off... meaning wrong link to title
 
             let art: Article = {
               'title': title,
@@ -52,7 +53,7 @@ export class RssService {
           //else no title, not going to display or save data
 
 
-          console.log("articles updated");
+          // console.log("articles updated");
         }
 
       
