@@ -39,7 +39,6 @@ export class RssService {
             if (data.documentElement.getElementsByTagName("description")[i]) { //if description add description to variable
               description = data.documentElement.getElementsByTagName("description")[i].textContent;
               description=striptags(description!.toString());
-              console.log("strip tags test"+description)
             }
             if (data.documentElement.getElementsByTagName("link")) {// if url add url
               url = data.documentElement.getElementsByTagName("link")[i].innerHTML;
