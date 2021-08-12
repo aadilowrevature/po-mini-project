@@ -14,6 +14,7 @@ export class RssService {
   urlList: string[] = []; //holds list of urls
 
   articleEmitter = new Subject<Article[]>();
+  urlEmitter = new Subject<string[]>();
   //switch to behavior subject...
   //new EventEmitter<Article[]>(); //produced event...
 
@@ -57,7 +58,7 @@ export class RssService {
         }
 
       
-        this.articleEmitter.next(this.articles)
+        this.articleEmitter.next(this.articles);
         return this.articles;
   })
   //need to add error handling... near here?
@@ -66,19 +67,23 @@ export class RssService {
 
 
 //not used yet
-getUrls(): string[] {
-  return this.urlList;
-}
-addUrl(url: string) {
+// getUrls(): string[] {
+//   return this.urlList;
+// }
+// addUrl(url: string) {
+//   this.urlList.push(url);
+// }
+// removeUrl() {
+//   //not implmented...
+// }
+addUrl(url:string){
   this.urlList.push(url);
-}
-removeUrl() {
-  //not implmented...
+  this.urlEmitter.next(this.urlList);
 }
 }
 
 // this needs to be a behavrior subject I believe -otherwise it will be hard to pas around
-
+//ondestroy!!
 
 //.. may try extracting the title {...title}...geez, too tired to remember what thats called
 
@@ -86,3 +91,4 @@ removeUrl() {
 //example feeds
 //https://feeds.npr.org/344098539/podcast.xml
 //https://www.reddit.com/.rss
+//https://www.usda.gov/rss/home.xml

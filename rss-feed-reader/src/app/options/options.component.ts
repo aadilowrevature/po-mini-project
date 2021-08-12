@@ -13,7 +13,7 @@ export class OptionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(input:string){ //add string parameter
+  submit(input: string) { //add string parameter
     // event?.preventDefault();
     // console.log("submitted: "+ input);
     // console.log(input);
@@ -22,6 +22,11 @@ export class OptionsComponent implements OnInit {
     // this.rssService.setData('https://www.usda.gov/rss/home.xml');
     //should this call next() in the subject?
 
+  }
+  save(inp: string) {
+    console.log(inp); //worked
+    this.rssService.addUrl(inp);
+    //remove text from input?
   }
 }
 //https://feeds.npr.org/344098539/podcast.xml //this one does not work
