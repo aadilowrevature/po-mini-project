@@ -2,6 +2,21 @@
     <h2>Search Results</h2>
     <ol >
         <!-- ngfor on div, showing each article -->
-        <li *ngFor='let article of articles'>{{article.title}}</li>
+        <div *ngFor='let article of articles'>
+            <li>{{article.title}}
+
+            </li>
+            <ol>
+                <li>
+                    {{article.description}}
+                </li>
+                <li>
+                    {{article.link}}
+                </li>
+            </ol>
+
+
+        </div>
+        
     </ol>
 </div>
