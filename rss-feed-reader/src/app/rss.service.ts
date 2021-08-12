@@ -31,39 +31,57 @@ export class RssService {
         //empty data so we dont just add to it...
         this.articles = []; // deletes old list
         for (let i = 0; i < data.documentElement.getElementsByTagName("title").length; i++) {
-          if (data.documentElement.getElementsByTagName("description")[i]) {
-            let art: Article = {
-              'title': data.documentElement.getElementsByTagName("title")[i].innerHTML,
-              'description': data.documentElement.getElementsByTagName("description")[i].innerHTML,
-              'link': data.documentElement.getElementsByTagName("link")[i].innerHTML
+          // if (data.documentElement.getElementsByTagName("title")[i]) { //if title exists, we will create variables
+            let title = data.documentElement.getElementsByTagName("title")[i].innerHTML;
+            let description = '';
+            let url = '';
+            if (data.documentElement.getElementsByTagName("description")[i]) { //if description add description to variable
+              description = data.documentElement.getElementsByTagName("description")[i].innerHTML;
             }
-            //may want to strip broken http from this... check abeils code
-            this.articles.push(art);
-            console.log("articles updated");
-          }
+            if (data.documentElement.getElementsByTagName("link")) {// if url add url
+              url = data.documentElement.getElementsByTagName("link")[i].innerHTML;
+            }
 
+            let art: Article = {
+              'title': title,
+              'description': description,
+              'link': url
+            }
+            this.articles.push(art);
+          // }//end of if statement
+          //else no title, not going to display or save data
+
+
+          console.log("articles updated");
         }
+
+      
         this.articleEmitter.next(this.articles)
         return this.articles;
-      })
-    //need to add error handling... near here?
-    return []; //should only hit if error... because errorhandling not dealt with yet
-  }
+  })
+  //need to add error handling... near here?
+  return []; //should only hit if error... because errorhandling not dealt with yet
+}
 
 
-  //not used yet
-  getUrls(): string[] {
-    return this.urlList;
-  }
-  addUrl(url: string) {
-    this.urlList.push(url);
-  }
-  removeUrl() {
-    //not implmented...
-  }
+//not used yet
+getUrls(): string[] {
+  return this.urlList;
+}
+addUrl(url: string) {
+  this.urlList.push(url);
+}
+removeUrl() {
+  //not implmented...
+}
 }
 
 // this needs to be a behavrior subject I believe -otherwise it will be hard to pas around
 
 
 //.. may try extracting the title {...title}...geez, too tired to remember what thats called
+
+
+//example feeds
+//https://feeds.npr.org/344098539/podcast.xml
+//https://www.reddit.com/.rss
