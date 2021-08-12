@@ -1,7 +1,7 @@
 <div class='component'>
 <form >
-<input type="text" placeholder="URL" name="myUrl">
-<button type="submit" (click)="submit()">Submit</button>
+<input type="text" placeholder="URL" name="myUrl" #url>
+<button type="submit" (click)="submit(url.value)">Submit</button>
 <!-- $event.myUrl.value ? -->
 
 </form>

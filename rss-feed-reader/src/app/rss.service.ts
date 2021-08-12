@@ -26,7 +26,8 @@ export class RssService {
       .then(data => {
         console.log(data)
         console.log(data.documentElement.getElementsByTagName("title").length)
-
+//empty data so we dont just add to it...
+        this.articles = [];
         for (let i = 0; i < data.documentElement.getElementsByTagName("title").length; i++) {
           let art: Article = {
             'title': data.documentElement.getElementsByTagName("title")[i].innerHTML,
@@ -50,3 +51,4 @@ export class RssService {
 // this needs to be a behavrior subject I believe -otherwise it will be hard to pas around
 
 
+//.. may try extracting the title {...title}...geez, too tired to remember what thats called

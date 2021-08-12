@@ -13,12 +13,16 @@ export class OptionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(){ //add string parameter
+  submit(input:string){ //add string parameter
     // event?.preventDefault();
-    console.log("submit");
+    // console.log("submitted: "+ input);
+    // console.log(input);
+    this.rssService.setData(input);
     //this should call the rss service... and cause displaying of results
-    this.rssService.setData('https://www.usda.gov/rss/home.xml');
+    // this.rssService.setData('https://www.usda.gov/rss/home.xml');
     //should this call next() in the subject?
-    
+
   }
 }
+//https://feeds.npr.org/344098539/podcast.xml //this one does not work
+//https://www.usda.gov/rss/home.xml //this oen works
