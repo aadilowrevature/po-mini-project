@@ -2,4 +2,6 @@
     background-color: #f9b49c;
     color: black;
     padding: .5em;
+    overflow-wrap: break-word;
+    margin-top: .2em;
 }
