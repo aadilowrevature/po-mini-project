@@ -1,4 +1,11 @@
 .component{
-    border: 3px solid slategray;
+    border: 2px solid #098ebe;
     /* background-color: teal; */
+    padding: .5em 1em;
+    background-color: #04bafb;
+    /* #897b6a; */
+    /* margin-top: 25px; */
 }
+/* :root{
+    background-color: black;
+} */

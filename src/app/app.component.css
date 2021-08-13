@@ -1,0 +1,13 @@
+.background-div{
+    
+    background-color:#282c34;
+    /* #04bafb; */
+    /* #6a7889; */
+    color: #faf602;
+    padding-top: 1%;
+}
+.main-div{
+    min-height: 100vh;
+    background-color:#282c34;
+}
+/* collapsing margins are stupid */
