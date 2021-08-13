@@ -1,0 +1,12 @@
+<div class='component'>
+<form >
+<input type="text" placeholder="URL" name="myUrl"  [(ngModel)]="urlInput">
+<button type="submit" (click)="submit(urlInput)" >Submit</button>
+<!-- $event.myUrl.value ? -->
+<button (click)="save(urlInput)">Save</button>
+</form>
+</div>
+<!-- 
+    #url
+    url.value
+-->

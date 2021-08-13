@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { RssService } from '../rss.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { RssService } from '../rss.service';
   styleUrls: ['./options.component.css']
 })
 export class OptionsComponent implements OnInit {
+  urlInput: string = ''; 
 
   constructor(private rssService: RssService) { }
 
@@ -24,7 +26,7 @@ export class OptionsComponent implements OnInit {
     else{
       //handle this!
     }
-    
+    this.urlInput = '';
 
   }
 }
