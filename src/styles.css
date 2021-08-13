@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css"; 
+/* this worked, font looks funny thoug */
+/* *{
+    background-image: url(../imgs/vintage-paper-texture.jpg);
+} */
+app-root{
+    background-color:#282c34;
+}
